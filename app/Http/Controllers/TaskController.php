@@ -9,14 +9,14 @@ use Illuminate\Routing\Controller;
 class TaskController extends Controller
 {
     public function index() {
-        $tasks = Task::latest()->get();
+        $tasks = Task::orderBy('is_completed', 'asc')->latest()->get();
         return view('tasks', compact('tasks'));
     }
 
     public function store(Request $request) {
         $request->validate(['title' => 'required|string|max:255']);
         Task::create(['title' => $request->title]);
-        return redirect()->back();
+        return redirect()->back()->with('success_add', 'Tugas berhasil ditambahkan! ✨');
     }
 
     public function toggle(Task $task) {
@@ -26,6 +26,6 @@ class TaskController extends Controller
 
     public function destroy(Task $task) {
         $task->delete();
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Tugas berhasil dihapus! 🗑️');
     }
 }

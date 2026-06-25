@@ -23,7 +23,7 @@ Jika kamu ingin menjalankan project ini di komputermu sendiri, pastikan kamu sud
 Buka terminal dan jalankan perintah berikut untuk mengunduh kode:
 ```bash
 git clone [https://github.com/immanueljustinn/Task-Tracker.git](https://github.com/immanueljustinn/Task-Tracker.git)
-cd task-tracker-laravel
+cd Task-Tracker
 ```
 
 ### 2. Install Dependensi
